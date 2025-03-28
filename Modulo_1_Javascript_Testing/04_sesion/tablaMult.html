@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas Niños</title>
+    <a href="./index.html" class="enlace">Regresar...</a>
+</head>
+<body>
+    <h1 class="titulo">Tabla de Multiplicar</h1>
+    <p><i> En este ejercicio se muestran una de las tablas de multiplicar, dependiendo de cual elijas, de entre la tabla del <strong>UNO</strong> hasta la tabla del <strong>DOCE</strong></i></p>
+    <div>
+        <label for="tabla">Elije la tabla de multiplicar:</label>
+        <select name="tabla" id="tabla">
+            <option value="1" id="t01">Uno</option>
+            <option value="2" id="t02">Dos</option>
+            <option value="3" id="t03">Tres</option>
+            <option value="4" id="t04">Cuatro</option>
+            <option value="5" id="t05">Cinco</option>
+            <option value="6" id="t06">Seis</option>
+            <option value="7" id="t07">Siete</option>
+            <option value="8" id="t08">Ocho</option>
+            <option value="9" id="t09">Nueve</option>
+            <option value="10" id="t10">Diez</option>
+            <option value="11" id="t11">Once</option>
+            <option value="12" id="t12">Doce</option>
+        </select>
+    </div>    
+
+    <script>
+        const multiplicador = factor => numeroFactor => numeroFactor * factor;         
+        const selectElement = document.getElementById('tabla');
+
+        // Crear un contenedor para mostrar la tabla de multiplicar
+        const resultadoDiv = document.createElement('div');
+        document.body.appendChild(resultadoDiv);
+
+        // Mostrar el valor inicial del elemento <select>
+        console.log("Valor inicial del select:", selectElement.value);
+
+        var numero = selectElement.value;
+        resultadoDiv.innerHTML = "<br>";
+        multiplicarXNum(numero);
+
+        selectElement.addEventListener('change', (event) => { // Escuchar el evento 'change' en el select
+            const selectedValue = event.target.value; // Obtener el valor del option seleccionado
+            //console.log(`Opción seleccionada: ${selectedValue}`);
+            numero = selectedValue; // Asignar el valor seleccionado a una variable
+            //console.log(`Tabla seleccionada: ${numero}`);
+
+            // Limpiar el contenido previo
+            resultadoDiv.innerHTML = "";
+            resultadoDiv.innerHTML += "<br>";
+
+            multiplicarXNum(numero);
+        });  
+
+        // Generar la tabla de multiplicar
+        function multiplicarXNum(num) {
+            for (let i = 1; i <= 12; i++) {
+                const factorizar = multiplicador(i);
+                const miTabla = `${numero} x ${i} = ${factorizar(num)}`;
+                //console.log(miTabla);
+                resultadoDiv.innerHTML += miTabla + "<br>";
+            }
+        }        
+    </script>
+</body>
+</html>
