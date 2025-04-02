@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 06 de JavaScript</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Notas Guardadas</h1>
+    <textarea id="nota" rows="10" cols="50"></textarea>
+    <br>
+    <button onclick="guardarNota()">Guardar Nota</button>
+    <button onclick="document.getElementById('nota').value = ''">Limpiar</button>
+    <h2>Notas Guardadas</h2>
+    <ul id="listaNotas">
+        <!-- Aquí se mostrarán las notas guardadas --> 
+    </ul>
+    <script>
+        // Mostrar las notas al cargar la página
+        window.onload = function() { 
+            mostrarNotas();
+        };
+
+        // Función para guardar la nota en el localStorage
+        function guardarNota() {
+            const nota = document.getElementById('nota').value.trim();
+            if (nota) {
+                let notasGuardadas = JSON.parse(localStorage.getItem('notas')) || [];
+                notasGuardadas.push(nota);
+                localStorage.setItem('notas', JSON.stringify(notasGuardadas));
+                document.getElementById('nota').value = '';
+                mostrarNotas();
+            } else {
+                alert('Por favor, escribe una nota antes de guardar.');
+            }
+        }
+
+        // Función para mostrar las notas guardadas en el localStorage
+        function mostrarNotas() {
+            const listaNotas = document.getElementById('listaNotas');
+            listaNotas.innerHTML = '';
+            let notasGuardadas = JSON.parse(localStorage.getItem('notas')) || [];
+            notasGuardadas.forEach((nota, index) => {
+                const li = document.createElement('li');
+                li.textContent = nota;
+
+                const btnEliminar = document.createElement('button');
+                btnEliminar.textContent = 'Eliminar';
+                btnEliminar.onclick = () => eliminarNota(index);
+
+                const btnEditar = document.createElement('button');
+                btnEditar.textContent = 'Editar';
+                btnEditar.onclick = () => editarNota(index);
+
+                li.appendChild(btnEliminar);
+                li.appendChild(btnEditar);
+                listaNotas.appendChild(li);
+            });
+        }
+
+        // Función para eliminar una nota
+        function eliminarNota(index) {
+            let notasGuardadas = JSON.parse(localStorage.getItem('notas')) || [];
+            notasGuardadas.splice(index, 1);
+            localStorage.setItem('notas', JSON.stringify(notasGuardadas));
+            mostrarNotas();
+        }
+
+        // Función para editar una nota
+        function editarNota(index) {
+            let notasGuardadas = JSON.parse(localStorage.getItem('notas')) || [];
+            const nota = notasGuardadas[index];
+            document.getElementById('nota').value = nota;
+            eliminarNota(index);
+        }
+
+        // Función para limpiar todas las notas guardadas
+        function limpiarNotas() {
+            if (confirm('¿Estás seguro de que deseas eliminar todas las notas?')) {
+                localStorage.removeItem('notas');
+                mostrarNotas();
+            }
+        }
+
+        // Botón para limpiar todas las notas
+        const btnLimpiar = document.createElement('button');
+        btnLimpiar.textContent = 'Limpiar Todas las Notas';
+        btnLimpiar.onclick = limpiarNotas;
+        document.body.appendChild(btnLimpiar);
+    </script>
+</body>
+</html>
