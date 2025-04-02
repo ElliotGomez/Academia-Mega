@@ -1,0 +1,152 @@
+/* Estilos generales */
+body {
+    font-family: 'Georgia', serif; /* Fuente elegante */
+    background: linear-gradient(135deg, hsl(210, 50%, 85%), hsl(190, 50%, 95%)); /* Fondo degradado suave */
+    color: hsl(210, 10%, 20%); /* Color de texto oscuro y elegante */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.8;
+    transition: all 0.3s ease-in-out; /* Transiciones suaves */
+}
+
+a {
+    color: hsl(244, 100%, 50%);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: hsl(244, 100%, 40%);
+    text-decoration: underline;
+}
+
+button {
+    background-color: hsl(244, 100%, 50%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: hsl(244, 100%, 40%);
+    transform: scale(1.05);
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: hsl(73, 85%, 79%);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.8; /* Mejora la legibilidad */
+    color: #333; /* Color de texto predeterminado */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+/* Títulos */
+.tituloIdx {
+    color: hsl(244, 100%, 50%);
+    text-align: center;
+    font-size: 2.5rem; /* Usar rem para escalabilidad */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Estilo en mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+.subtituloIdx {
+    color: #555;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600; /* Negrita ligera */
+}
+
+.subtitulo2Idx {
+    color: #000;
+    margin: 10px 200px;
+    text-align: justify;
+    padding: 20px;
+    font-size: 1.6rem;
+    line-height: 1.8; /* Mejora la legibilidad */
+    background-color: #f4f4f4; /* Fondo claro para destacar */
+    border-left: 5px solid hsl(244, 100%, 50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Imágenes */
+#Img01Idx {
+    width: 25%;
+    height: auto;
+    margin: 10px 200px;
+    border-radius: 20px;
+    box-shadow: 0 20px 100px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+#Img01Idx:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+    box-shadow: 0 30px 120px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Párrafos */
+.parrafoIdx {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 200px;
+    text-align: justify;
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco para contraste */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Bordes y contenedores */
+.bordes {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9; /* Fondo claro para destacar */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transiciones suaves */
+}
+
+.bordes:hover {
+    background-color: #eaeaea; /* Fondo más oscuro al pasar el mouse */
+    border-color: hsl(244, 100%, 50%); /* Cambia el color del borde */
+}
+
+/* Títulos generales */
+h1, h3 {
+    margin: 10px 0;
+    color: #222;
+    font-weight: bold;
+    text-transform: capitalize; /* Primera letra en mayúscula */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .subtitulo2Idx, .parrafoIdx, #Img01Idx {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #Img01Idx {
+        width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    }
+
+    .subtitulo2Idx {
+        font-size: 1.4rem; /* Ajusta el tamaño de fuente */
+    }
+
+    .parrafoIdx {
+        font-size: 0.9rem; /* Reduce el tamaño de fuente */
+    }
+}

@@ -1,0 +1,165 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f5f7; /* Fondo claro y moderno */
+    margin: 0;
+    padding: 20px;
+    color: #212529; /* Texto oscuro para buen contraste */
+    line-height: 1.6;
+}
+
+/* Enlace de regreso */
+.enlace {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #007bff; /* Azul elegante */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.enlace:hover {
+    color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Título principal */
+.titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #343a40; /* Gris oscuro */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* Sección principal */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+}
+
+/* Párrafo descriptivo */
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d; /* Gris elegante */
+    margin-bottom: 30px;
+}
+
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Fieldsets */
+fieldset {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+fieldset:hover {
+    background-color: #e9ecef; /* Fondo más claro al pasar el mouse */
+    border-color: #adb5bd;
+}
+
+legend {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #495057;
+    padding: 0 10px;
+}
+
+/* Etiquetas */
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #343a40;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Inputs y Select */
+input, select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #495057;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Botones */
+button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff; /* Azul elegante */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+button[type="reset"] {
+    background-color: #6c757d; /* Gris elegante */
+}
+
+button[type="reset"]:hover {
+    background-color: #495057;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    input, select {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
