@@ -15,4 +15,5 @@ Temas cubiertos
 	* Elaboración de una actividad con el uso de las sentencias de control revisadas.
 
  Screenshots
-![image](https://github.com/user-attachments/assets/72d32030-6ba3-41a1-b267-6c7c177e1d82)
+![image](https://github.com/user-attachments/assets/6b3c631d-066c-4036-b5f6-ebd19a41cda2)
+
