@@ -1,19 +1,21 @@
-Sesión 02: Estructuras de control
+Sesión 01: Introducción a JavaScript
 
-Fecha: 25/03/2025
+Fecha: 24/03/2025
 
 Objetivos de la sesión
 
-	* Conocer y manejar las estructuras de control en JavaScript.
+	*Introducción a variables de JavaScript.
  
 Temas cubiertos
 
-	* Reafirmación del uso de variables
+	* Síntesis de los fundamentos de JavaScript.
  
-	* Revisión de sentencias de control "if-else", "for", "while".
+	* Revisión para declarar variables en JavaScript.
  
-	* Elaboración de una actividad con el uso de las sentencias de control revisadas.
+	* Elaboración de una actividad con el uso de variables.
+ 
 
  Screenshots
-![image](https://github.com/user-attachments/assets/6b3c631d-066c-4036-b5f6-ebd19a41cda2)
+![image](https://github.com/user-attachments/assets/1e037a58-4b44-4667-813c-730e0ff02a93)
+
 
