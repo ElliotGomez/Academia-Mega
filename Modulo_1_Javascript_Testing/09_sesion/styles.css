@@ -1,0 +1,99 @@
+/* Estilos básicos */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f4f4f9, #e0e7ff);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: #4f46e5; /* Azul vibrante */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Contenedor de resultados */
+#resultados {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#resultados:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Párrafos dentro del contenedor */
+#resultados p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333;
+    line-height: 1.9;
+    text-align: center;
+}
+
+/* Mensajes de error */
+.error {
+    color: #e63946; /* Rojo vibrante */
+    font-weight: bold;
+}
+
+/* Botón de acción (opcional) */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4f46e5; /* Azul vibrante */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #4338ca; /* Azul más oscuro */
+    transform: scale(1.15);
+}
+
+button:active {
+    transform: scale(1.15);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #resultados {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    #resultados p {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
