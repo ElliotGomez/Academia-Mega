@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Clase 10</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Login Ficticio</h1>
+    <div id="contLogueo">
+        <input type="text" id="username" placeholder="Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <br><br>
+        <button onclick="login()">Iniciar Sesión</button>
+    </div>
+    <div id="contBienvenida" style="display: none;">
+        <h2 id="msgBienvenida"></h2>
+        <button onclick="logout()">Cerrar Sesión</button>
+    </div>
+    <script src="./authModule.js"></script>
+    <script src="./userSingleton.js"></script>
+    <script>
+        function login() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            if (authModule.login(user, pass)) {
+                const currentUser = authModule.getCurrentUser();
+                document.getElementById('msgBienvenida').textContent = `Bienvenido, ${currentUser}`;
+                document.getElementById('contLogueo').style.display = 'none';
+                document.getElementById('contBienvenida').style.display = 'block';
+            } else {
+                alert('Usuario o contraseña incorrectos.');
+            }
+        }
+
+        function logout() {
+            authModule.logout();
+            document.getElementById('contLogueo').style.display = 'block';
+            document.getElementById('contBienvenida').style.display = 'none';
+        }
+
+
+        // Verificar si el usuario ya está autenticado al cargar la página
+        window.onload = function () {
+            if (authModule.isAuthenticated()) {
+                const currentUser = authModule.getCurrentUser();
+                document.getElementById('msgBienvenida').textContent = `Bienvenido, ${currentUser}`;
+                document.getElementById('contLogueo').style.display = 'none';
+                document.getElementById('contBienvenida').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>
