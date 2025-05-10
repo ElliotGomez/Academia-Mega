@@ -1,0 +1,23 @@
+<h1>Rutas</h1>
+<nav>
+    <ul>
+        <a routerLink="/">Apis</a>
+        <a routerLink="/formulario">Formulario</a>
+        <a routerLink="/servicio">Servicios</a>
+        <a routerLink="/componentes">Componentes</a>
+        <a routerLink="/home">Home</a>
+        <a routerLink="/gestor">Gestor</a>
+        <a routerLink="/todo">Todo</a>
+        <a routerLink="error">Error</a>
+    </ul>
+</nav>
+<!-- PIPES -->
+<h3>Estoy en AppComponent para uso de Pipe</h3>
+<div>
+  <p><strong>Nombre: </strong>{{nombre | uppercase}}</p>
+  <p><strong>Edad: </strong>{{fechaNacimiento | edad}}</p>
+  <p><strong>Salario: </strong>{{salario | currency:"EUR"}}</p>
+</div>
+
+<!-- RUTAS -->
+<router-outlet></router-outlet>

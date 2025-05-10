@@ -1,0 +1,25 @@
+<h1>Lista de Productos</h1>
+
+<!-- <p>{{itemSeleccionado?.nombre}}</p> -->
+<!-- Mensaje inicial -->
+<p *ngIf="mostrarMensaje" style="color:rgb(1, 1, 82);"><strong>Selecciona un producto para ver los detalles</strong></p>
+
+<!-- Mostrar el nombre del producto seleccionado -->
+<p *ngIf="itemSeleccionado">Haz seleccionado: <strong>{{ itemSeleccionado.nombre | uppercase }}</strong>, si deseas ver los detalles de otro producto haz click sobre el</p>
+
+<div style="display: flex; gap: 1rem">
+  <!-- Columna de Productos -->
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; width: 50%;">
+      <app-productos
+        *ngFor="let item of items"
+        [info]="item"
+        (seleccionado)="seleccionarItem($event)"
+      ></app-productos>
+  </div>
+</div>
+
+  <!-- Columna de Detalles -->
+  <div style="width: 50%;">
+    <!-- <app-detalles [item]="itemSeleccionado"></app-detalles> -->
+    <app-detalles *ngIf="itemSeleccionado" [item]="itemSeleccionado"></app-detalles>
+ </div>
