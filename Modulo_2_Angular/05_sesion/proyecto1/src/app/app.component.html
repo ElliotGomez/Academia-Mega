@@ -1,0 +1,50 @@
+<h1 style="text-align: center;">Directivas Estructurales</h1>
+
+<!-- nfIf y ngFor -->
+<div>
+  <app-todo></app-todo>
+</div>
+
+<!-- ngSwitch -->
+<br><br>
+<div class="directivas">
+  <h2 style="text-align: center;">Panel de Usuario</h2>
+
+  <!-- Input para cambiar el rol -->
+  <div style="text-align: center; margin-bottom: 1rem;">
+    <input [(ngModel)]="rolUsuario" placeholder="Ingresa el rol adecuado (admin, user, invitado)" />
+  </div>
+
+  <!-- ngSwitch para mostrar contenido según el rol -->
+  <div [ngSwitch]="rolUsuario" style="text-align: center;">
+    <p *ngSwitchCase="'admin'" class="switch-paragraph">ERES ADMINISTRADOR</p>
+    <p *ngSwitchCase="'user'" class="switch-paragraph">ERES UN USUARIO NORMAL</p>
+    <p *ngSwitchCase="'invitado'" class="switch-paragraph">ERES UN INVITADO</p>
+    <p *ngSwitchDefault class="switch-paragraph">ROL, NO RECONOCIDO</p>
+  </div>
+
+ <!-- ngClass -->
+<div style="text-align: center;">
+  <button (click)="toggleImportante()">
+    {{ tareaImportante ? "Desmarcar Importante" : "Marcar Importante" }}
+  </button>
+  <p [ngClass]="{ 'importante': tareaImportante }">
+    Esta tarea {{ tareaImportante ? "es IMPORTANTE" : "NO es IMPORTANTE" }}
+  </p>
+</div>
+<!-- ngStyle -->
+  <div style="text-align: center; font-weight: bold;">
+    <button (click)="toggleUrgente()">
+      {{ isUrgente ? "Marcar como NO Urgente" : "Marcar como URGENTE" }}
+    </button>
+    <p [ngStyle]="{ color: isUrgente ? 'red' : 'green', fontSize: '18px' }">
+      Esta tarea {{ isUrgente ? "ES URGENTE" : "NO es URGENTE" }}
+    </p>
+  </div>
+</div>
+
+<!-- ngClass y ngStyle -->
+<div>
+  <app-product-manager></app-product-manager>
+</div>
+
