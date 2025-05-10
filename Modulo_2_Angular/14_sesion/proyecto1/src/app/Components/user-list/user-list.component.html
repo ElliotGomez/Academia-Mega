@@ -1,0 +1,5 @@
+<div *ngFor="let user of users" class="card" (click)="OnSelect(user)">
+  <h3>{{user | fullName}}</h3>
+  <img id="miImg" [src]="user.picture.thumbnail" alt="">
+  <!-- <p>{{user.email}}</p> -->
+</div>

@@ -1,0 +1,71 @@
+<!-- PIPES -->
+<h3>Estoy en AppComponent</h3>
+<div>
+  <p><strong>Nombre: </strong>{{nombreP | uppercase}}</p>
+  <p><strong>Edad: </strong>{{fechaNacimientoP | edad}}</p>
+  <p><strong>Salario: </strong>{{salarioP | currency:"EUR"}}</p>
+</div>
+
+<!-- FORMULARIO -->
+<div class="container">
+  <h1>Registro de Usuario</h1>
+  <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+    <!-- Nombre -->
+    <div class="form-control">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        [(ngModel)]="usuario.nombre"
+        required
+        minlength="3"
+        #nombre="ngModel"
+        >
+      <div class="error" *ngIf="nombre.invalid && nombre.touched">
+        El nombre debe ser obligatorio y debe tener 3 caracteres
+       </div>
+    </div>
+    <!-- Email -->
+     <div class="form-control">
+        <label for="email">Email</label>
+        <input
+        type="text"
+        id="email"
+        name="email"
+        [(ngModel)]="usuario.email"
+        required
+        #email="ngModel"
+        >
+        <div class="error" *ngIf="email.invalid && email.touched">
+          Ingresa un correo Válido
+        </div>
+     </div>
+
+         <!-- Edad -->
+    <div class="form-control">
+      <label for="edad">Edad</label>
+      <input
+      type="text"
+      id="edad"
+      name="edad"
+      [(ngModel)]="usuario.edad"
+      required
+      min="18"
+      #edad="ngModel"
+      >
+      <div class="error" *ngIf="edad.invalid && edad.touched">
+        Debes tener al menos 18 años
+      </div>
+    </div>
+    <!-- Botón -->
+    <button
+      [disabled]="formulario.invalid"
+      type="submit"
+      >Enviar</button>
+  </form>
+  <h2>Datos Actuales</h2>
+  <pre>
+    {{usuario | json}}
+  </pre>
+</div>
