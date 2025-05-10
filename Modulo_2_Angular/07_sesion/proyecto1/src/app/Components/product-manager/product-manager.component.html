@@ -1,0 +1,62 @@
+<div class="container">
+  <h2>Gestor de Productos</h2>
+
+  <!-- Botones de categoría -->
+  <div class="categoria-butons">
+    <button (click)="seleccionarCategoria('electronica')">Electrónica</button>
+    <button (click)="seleccionarCategoria('ropa')">Ropa</button>
+    <button (click)="seleccionarCategoria('hogar')">Hogar</button>
+  </div>
+
+  <!-- Productos según la categoría seleccionada -->
+  <div [ngSwitch]="categoriaSeleccionada">
+    <div *ngSwitchCase="'electronica'">
+      <h3>Productos Electrónicos</h3>
+      <ng-container *ngIf="productos.electronica.length > 0; else sinProductos">
+        <div *ngFor="let p of productos.electronica"
+             [ngClass]="{'agotado': !p.disponible}"
+             [ngStyle]="{'color': p.descuento > 0 ? 'green' : 'black'}"
+             class="producto">
+          <span>{{ p.nombre }}</span>
+          <span class="precio">${{ p.precio }}</span>
+          <span *ngIf="p.descuento > 0" class="descuento">(Descuento {{ p.descuento }}%)</span>
+          <span *ngIf="!p.disponible">- No disponible</span>
+        </div>
+      </ng-container>
+    </div>
+
+    <div *ngSwitchCase="'ropa'">
+      <h3>Productos de Ropa</h3>
+      <ng-container *ngIf="productos.ropa.length > 0; else sinProductos">
+        <div *ngFor="let p of productos.ropa"
+             [ngClass]="{'agotado': !p.disponible}"
+             [ngStyle]="{'color': p.descuento > 0 ? 'green' : 'black'}"
+             class="producto">
+          <span>{{ p.nombre }}</span>
+          <span class="precio">${{ p.precio }}</span>
+          <span *ngIf="p.descuento > 0" class="descuento">(Descuento {{ p.descuento }}%)</span>
+          <span *ngIf="!p.disponible">- No disponible</span>
+        </div>
+      </ng-container>
+    </div>
+
+    <div *ngSwitchCase="'hogar'">
+      <h3>Productos para el Hogar</h3>
+      <ng-container *ngIf="productos.hogar.length > 0; else sinProductos">
+        <div *ngFor="let p of productos.hogar"
+             [ngClass]="{'agotado': !p.disponible}"
+             [ngStyle]="{'color': p.descuento > 0 ? 'green' : 'black'}"
+             class="producto">
+          <span>{{ p.nombre }}</span>
+          <span class="precio">${{ p.precio }}</span>
+          <span *ngIf="p.descuento > 0" class="descuento">(Descuento {{ p.descuento }}%)</span>
+          <span *ngIf="!p.disponible">- No disponible</span>
+        </div>
+      </ng-container>
+    </div>
+
+    <ng-template #sinProductos>
+      <p>No hay productos disponibles en esta categoría.</p>
+    </ng-template>
+  </div>
+</div>
