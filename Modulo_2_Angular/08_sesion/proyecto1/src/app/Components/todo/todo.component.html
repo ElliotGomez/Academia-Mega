@@ -1,0 +1,20 @@
+<!-- Formulario para agregar tareas -->
+<div>
+  <h1>Gestor de Tareas</h1>
+
+  <div style="display: flex; margin-bottom: 1rem;">
+    <input [(ngModel)]="nuevaTarea" placeholder="Nueva tarea..." />
+    <button (click)="agregarTareas()">Agregar</button>
+     <!-- Botón para limpiar todas las tareas -->
+    <button (click)="limpiarTareas()">Limpiar Tareas</button>
+  </div>
+
+
+    <!-- Lista de tareas -->
+    <ul>
+      <li *ngFor="let tarea of tareas; let i = index" [ngClass]="{'completada': tarea.completada}">
+        <span (click)="toggleCompletar(i)">{{ tarea.texto }}</span>
+        <button (click)="eliminarTarea(i)">Eliminar</button>
+      </li>
+    </ul>
+</div>
