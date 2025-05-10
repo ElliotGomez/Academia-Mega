@@ -1,0 +1,18 @@
+<!--
+<p>HOLA desde el componente CARD</p>
+-->
+<div class="card">
+  <img [src]="img" alt="Imagen de la tarjeta" class="card-img">
+
+  <div class="card-content">
+    <h3 class="card-title">{{ title }}</h3>
+    <p class="card-description">{{ contenido }}</p>
+    <p class="card-description">Este es por -Interpolación- Es decir, directo en HTML</p>
+    <button class="btn" (click)="mostrarAlerta()">{{ botontext }}</button>
+  </div>
+
+  <div class="card-input-container">
+    <input class="card-input" type="text" [(ngModel)]="nombre" placeholder="Ahora escribe para usar el -Two Way Binding-">
+    <p class="card-parrafo-input">{{ nombre }}</p>
+  </div>
+</div>
