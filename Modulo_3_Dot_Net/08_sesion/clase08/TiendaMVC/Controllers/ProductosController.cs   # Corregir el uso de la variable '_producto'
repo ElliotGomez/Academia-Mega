@@ -1,0 +1,22 @@
+public class ProductosController : Controller
+{
+    private readonly IProductoApiService _productoApiService;
+    private Producto _producto;
+
+    public ProductosController(IProductoApiService productoApiService)
+    {
+        _productoApiService = productoApiService;
+    }
+
+    public IActionResult Index()
+    {
+        // Lógica para obtener productos
+        return View();
+    }
+
+    public IActionResult Detalle(int id)
+    {
+        _producto = _productoApiService.ObtenerProductoPorId(id);
+        return View(_producto);
+    }
+}
