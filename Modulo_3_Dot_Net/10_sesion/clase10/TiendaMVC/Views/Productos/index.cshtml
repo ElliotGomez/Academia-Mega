@@ -1,0 +1,31 @@
+@model IEnumerable<TiendaMVC.Models.Producto>
+@{
+    ViewData["Title"] = "Listado de Productos";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nombre</td>
+                <td>@item.Precio.ToString("C")</td>
+                <td>
+                    | <a asp-action="Details" asp-route-id="@item.Id">Ver Detalle</a> | 
+                    <a asp-action="Create" asp-route-id="@item.Id">Nuevo</a> | 
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> | 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a> |
+                </td>
+            </tr>
+        }
+    </tbody>    
+</table>
