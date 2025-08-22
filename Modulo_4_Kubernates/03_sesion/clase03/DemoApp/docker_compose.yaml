@@ -1,0 +1,23 @@
+version: "3.9"
+services: 
+  build: .
+  ports:
+    - "8000:80"
+  depends_on: 
+    - db
+  environment:
+    - ASPNETCORE_ENVIRONMENT_Development
+    - ConnetionStrings_DefaultConnection=Server=SVR;Database=DB;User Id=USR;Password=PWD
+    
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    environment:
+      - ACCEPT_EULA=Y
+      - PASS=Pr1m4v3r4.
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssqldata: /var/opt/mssql
+  volumes:
+    mssqldata
+
