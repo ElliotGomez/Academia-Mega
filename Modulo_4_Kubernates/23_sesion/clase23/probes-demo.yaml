@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: probe-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: probes
+  template:
+    metadata:
+      labels:
+        app: probes
+    spec:
+      containers:
+        - name:  demo
+          image:  gaiaadm/pumba:latest
+          # 1. Levantar server http en el puerto 8080
+          # 2. 60 segundos despues se borra un archivo para que falle
+          # 3. Va a tardar en recuperarse 20 segundos
+          command: ["sh", "-c"]
+          args:
+            - |
+              printf 'Botting demo container ...\n'
+              (sleep 20 && touch /tmp/ready) &
+              (sleep 60 && rm -f /tmp/healthy) &
+              touch /tmp/healthy;
+              while true; do
+                { echo -3 "HTTP/1.1 200 OK\r\n\rREADY";} | nc -l -p 8080 -q 1
+              done
+          ports:
+          - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 1 # Al fallo marca el pod como no ready
+          livenessProbe:
+            exec:
+              command: ["test", "-f", "tmp/healthy"]
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 2
+          startupProbe:
+            exec:
+              command: ["test", "-f", "tmp/ready"]
+            failureThreshold: 20 # se tienen 20 pruebas en intervalos de 5 segundos cada uno son 100 segundos 
+            periodSeconds: 5
