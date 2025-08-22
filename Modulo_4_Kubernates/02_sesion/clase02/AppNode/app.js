@@ -6,7 +6,7 @@ const PORT = process.PORT || 3000;
 
 
 app.get('/' , (req, rest) => {
-    rest.send("Hola mundo les dice Adonai Rios Rodríguez, prueba con volumenes");
+    rest.send("Hola mundo, prueba con volumenes");
 });
 
 app.listen(PORT , ()=>
