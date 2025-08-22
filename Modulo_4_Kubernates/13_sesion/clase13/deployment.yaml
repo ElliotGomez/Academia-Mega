@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secret-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-hello
+  template:
+    metadata:
+      labels:
+        app: k8s-hello
+    spec:
+      containers:
+      - name: hello-map-secret
+        image: k8s-hello:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        env:
+        - name: GREETING
+          valueFrom:
+            configMapKeyRef:
+              name: hello-config
+              key: GREETING
+        - name: API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: hello-secret
+              key: API_TOKEN
